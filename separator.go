@@ -1,3 +1,6 @@
 package ilpaddr
 
-const separator string = "."
+const (
+	separatorRune   rune   = '.'
+	separatorString string = string(separatorRune)
+)

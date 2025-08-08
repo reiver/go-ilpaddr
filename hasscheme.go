@@ -13,6 +13,6 @@ func HasScheme(ilpAddr string, scheme string) bool {
 		return false
 	}
 
-	var prefix string = scheme + separator
+	var prefix string = scheme + separatorString
 	return strings.HasPrefix(ilpAddr, prefix)
 }

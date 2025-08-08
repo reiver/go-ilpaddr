@@ -13,7 +13,7 @@ func Scheme(ilpAddr string) string {
 		return ""
 	}
 
-	index := strings.Index(ilpAddr, separator)
+	index := strings.Index(ilpAddr, separatorString)
 	if index < 0 {
 		return ""
 	}
