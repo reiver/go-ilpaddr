@@ -1,6 +1,6 @@
 package ilpaddr
 
 const (
-	separatorRune   rune   = '.'
-	separatorString string = string(separatorRune)
+	separatorByte   byte   = '.'
+	separatorString string = string(separatorByte)
 )
