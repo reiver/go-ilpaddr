@@ -8,30 +8,64 @@ func MatchLen(ilpAddr1 string, ilpAddr2 string) uint {
 	if "" == ilpAddr2 {
 		return 0
 	}
-
-	var shortest, longest string = ilpAddr1, ilpAddr2
-	if len(ilpAddr2) < len(ilpAddr1) {
-		shortest, longest = ilpAddr2, ilpAddr1
+	if separatorByte == ilpAddr1[len(ilpAddr1)-1] {
+		return 0
+	}
+	if separatorByte == ilpAddr2[len(ilpAddr2)-1] {
+		return 0
 	}
 
 	var matchLen uint
 
+	var route1 string
+	var route2 string
 	{
-		var limit int = len(shortest)
+		var scheme1 string
+		var scheme2 string
 
-		for i:=0; i<limit; i++ {
-			var b1 byte = shortest[i]
-			var b2 byte = longest[i]
+		scheme1, route1 = FirstRest(ilpAddr1)
+		scheme2, route2 = FirstRest(ilpAddr2)
 
-			if b1 != b2 {
-				return matchLen
-			}
-
-			if separatorByte == b1 {
-				matchLen++
-			}
+		if scheme1 != scheme2 {
+			return 0
+		}
+		if !IsValidScheme(scheme1) {
+			return 0
+		}
+		if "" == route1 {
+			return 0
+		}
+		if "" == route2 {
+			return 0
 		}
 	}
 
-	return matchLen+1
+	matchLen++
+
+	for {
+		var segment1 string
+		var segment2 string
+
+		segment1, route1 = FirstRest(route1)
+		segment2, route2 = FirstRest(route2)
+
+		if segment1 != segment2 {
+			break
+		}
+		if !IsValidSegment(segment1) {
+			return 0
+		}
+
+		matchLen++
+
+		if "" == route1 {
+			break
+		}
+		if "" == route2 {
+			break
+		}
+
+	}
+
+	return matchLen
 }
