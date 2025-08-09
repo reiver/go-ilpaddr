@@ -10,7 +10,7 @@ import (
 //
 //	var route string = "acmecorp.sales.199.~ipr.cdfa5e16-e759-4ba3-88f6-8b9dc83c1868.2"
 //	
-//	segment, rest := FirstRest(route)
+//	segment, rest := ilpaddr.FirstRest(route)
 //	// segment == "acmecorp"
 //	// rest    == "sales.199.~ipr.cdfa5e16-e759-4ba3-88f6-8b9dc83c1868.2"
 func FirstRest(route string) (firstSegment string, remainingRoute string) {
