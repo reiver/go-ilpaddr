@@ -6,6 +6,8 @@ Package **ilpaddr** implements **ILP Addresses** (**Interledger Protocol Address
 
 * `g.acme.bob`
 * `g.us-fed.ach.0.acmebank.swx0a0.acmecorp.sales.199.~ipr.cdfa5e16-e759-4ba3-88f6-8b9dc83c1868.2`
+* `g.crypto.bitcoin.12cbQLTFMXRnSzktFkuoG3eHoMeFtpTu3S`
+* `g.us.acmebank.acmecorp.sales.199`
 
 Information about **ILP Addresses** can be found here:
 
