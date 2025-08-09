@@ -4,7 +4,7 @@ package ilpaddr
 func IsValidSegment(segment string) bool {
 	var length int = len(segment)
 
-	if length < 0 {
+	if length <= 0 {
 		return false
 	}
 
