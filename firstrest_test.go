@@ -1,10 +1,12 @@
-package ilpaddr
+package ilpaddr_test
 
 import (
 	"testing"
+
+	"github.com/reiver/go-ilpaddr"
 )
 
-func TestSplitRoute(t *testing.T) {
+func TestFirstRest(t *testing.T) {
 
 	tests := []struct{
 		Route string
@@ -132,7 +134,7 @@ func TestSplitRoute(t *testing.T) {
 
 	for testNumber, test := range tests {
 
-		actualSegment, actualRemainingRoute := splitRoute(test.Route)
+		actualSegment, actualRemainingRoute := ilpaddr.FirstRest(test.Route)
 
 		{
 			actual := actualSegment

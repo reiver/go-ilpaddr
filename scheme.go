@@ -9,7 +9,7 @@ func Scheme(ilpAddr string) string {
 		return ""
 	}
 
-	scheme, remainingRoute := splitRoute(ilpAddr)
+	scheme, remainingRoute := FirstRest(ilpAddr)
 	if "" == remainingRoute {
 		return ""
 	}
