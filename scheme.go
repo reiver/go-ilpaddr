@@ -1,9 +1,5 @@
 package ilpaddr
 
-import (
-	"strings"
-)
-
 // Scheme returns the scheme of an ILP Address.
 //
 // If the ILP Address does not have a scheme,
@@ -13,15 +9,15 @@ func Scheme(ilpAddr string) string {
 		return ""
 	}
 
-	index := strings.Index(ilpAddr, separatorString)
-	if index < 0 {
+	scheme, remainingRoute := splitRoute(ilpAddr)
+	if "" == remainingRoute {
 		return ""
 	}
 
 	// Return "" for inputs such as "g.", "local.", etc.
-	if index == len(ilpAddr) - 1 {
+	if len(scheme) == len(ilpAddr) - 1 {
 		return ""
 	}
 
-	return ilpAddr[:index]
+	return scheme
 }
